@@ -1,0 +1,26 @@
+experiment:
+  dataset: "fmnist"
+  algorithm: "FedAPA"
+  model_name: "LeNet5"
+  distribution: "dirichlet" # "iid", "non-balanced" or "dirichlet"
+  alpha: 0.1
+  num_repeat_times: 3
+  debug: false
+  prefix: "compare"
+  benign_alone: false
+
+server:
+  global_rounds: 50
+  device: "cuda"  # 或 "cpu"
+  lowest_join_rate: 0.6
+  learning_rate: 0.01
+  clustering: "kmeans"
+
+client:
+  num_clients: 20
+  num_classes_per_client: 2
+  batch_size: 64
+  learning_rate: 0.01
+  local_epochs: 2
+  lambda: 0.1
+  belt: 0.1
